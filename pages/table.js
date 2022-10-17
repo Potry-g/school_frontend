@@ -3,22 +3,41 @@ import { authOptions } from "./api/auth/[...nextauth]";
 import { unstable_getServerSession } from "next-auth";
 import TableView from "../components/TableView";
 import styles from "../styles/Table.module.css";
-import ViewButton from "../components/ViewButton";
+import btnStyle from "../styles/Button.module.css";
+import CardView from "../components/CardView";
+import { useState } from "react";
 
 const table = ({ data }) => {
+    const [view, setView] = useState(true);
+
     return (
         <>
             <div style={{ paddingBottom: "5%" }}>
                 <div className={styles.viewDiv}>
-                    <ViewButton />
+                    <button
+                        className={btnStyle.buttonOut}
+                        onClick={() => {
+                            setView(!view);
+                        }}
+                    >
+                        {view ? "Card View" : "Table View"}
+                    </button>
                 </div>
                 <div className={styles.logDiv}>
                     <Logout />
                 </div>
             </div>
-            <div className={styles.tableWrapper}>
-                <TableView data={data} />
-            </div>
+            {view ? (
+                <div className={styles.tableWrapper}>
+                    <TableView data={data} />
+                </div>
+            ) : (
+                <div>
+                    <div className={styles.cardDiv}>
+                        <CardView data={data} />
+                    </div>
+                </div>
+            )}
         </>
     );
 };

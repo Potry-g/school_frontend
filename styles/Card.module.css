@@ -1,0 +1,14 @@
+.mainDiv{
+    text-align: center;
+    border: 1px solid black;
+    display: inline-block;
+    margin: 10px;
+    background-color: rgb(245, 242, 255);
+    padding: 20px;
+    width: 250px;
+}
+
+.childDiv{
+    float: left;
+    padding: 5px;
+}
