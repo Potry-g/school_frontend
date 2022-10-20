@@ -50,7 +50,7 @@ export async function getServerSideProps(context) {
     );
     if (session) {
         const response = await fetch(
-            "https://633efed883f50e9ba3bda98e.mockapi.io/school/1/professor"
+            "http://localhost:3001/school/3/professor"
         );
         const data = await response.json();
         return { props: { data } };
