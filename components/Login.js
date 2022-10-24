@@ -6,7 +6,9 @@ const Login = () => {
         <div className={logStyles.login}>
             <div className={logStyles.inner}>
                 <button
-                    onClick={() => signIn("google", { callbackUrl: "/table" })}
+                    onClick={() =>
+                        signIn("google", { callbackUrl: "/dashboard/1" })
+                    }
                     className={buttStyle.buttonIn}
                 >
                     Sign In With Google

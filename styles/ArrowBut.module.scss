@@ -1,0 +1,26 @@
+.arrowRight {
+  position: relative;
+  width: 0; 
+  height: 0; 
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-left: 30px solid black;
+}
+
+.arrowLeft{
+  position: relative;
+  width: 0; 
+  height: 0; 
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-right:30px solid black; 
+}
+.cool{
+  display: inline-flex;
+}
+
+.yes{
+  position: absolute;
+  top: 0;
+  right: 0;
+}

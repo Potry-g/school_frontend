@@ -1,13 +1,12 @@
-import Logout from "../components/Logout";
-import { authOptions } from "./api/auth/[...nextauth]";
-import { unstable_getServerSession } from "next-auth";
-import TableView from "../components/TableView";
+import Logout from "./Logout";
+import TableView from "./TableView";
 import styles from "../styles/Table.module.css";
 import btnStyle from "../styles/Button.module.css";
-import CardView from "../components/CardView";
+import CardView from "./CardView";
 import { useState } from "react";
+import SchoolButton from "./SchoolButton";
 
-const table = ({ data }) => {
+const DashBoard = ({ data, param }) => {
     const [view, setView] = useState(true);
 
     return (
@@ -38,30 +37,11 @@ const table = ({ data }) => {
                     </div>
                 </div>
             )}
+            <div style={{ textAlign: "center" }}>
+                <SchoolButton param={param} />
+            </div>
         </>
     );
 };
 
-export async function getServerSideProps(context) {
-    const session = await unstable_getServerSession(
-        context.req,
-        context.res,
-        authOptions
-    );
-    if (session) {
-        const response = await fetch(
-            "http://localhost:3001/school/3/professor"
-        );
-        const data = await response.json();
-        return { props: { data } };
-    } else {
-        return {
-            redirect: {
-                destination: "/login",
-                permanent: false,
-            },
-        };
-    }
-}
-
-export default table;
+export default DashBoard;

@@ -14,7 +14,7 @@ export async function getServerSideProps(context) {
     if (session) {
         return {
             redirect: {
-                destination: "/table",
+                destination: "/dashboard/1",
             },
         };
     }
