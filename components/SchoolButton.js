@@ -22,9 +22,12 @@ const SchoolButton = ({ param }) => {
                 )}
                 <div className={styles.cool}>
                     {idS >= 1 ? <h3>{idS}</h3> : <></>}
-                    <h2 style={{ marginLeft: "40px", marginRight: "40px" }}>
-                        School
-                    </h2>
+                    <div>
+                        <h2 style={{ marginLeft: "40px", marginRight: "40px" }}>
+                            School
+                        </h2>
+                        <h3 style={{ marginTop: "-20px" }}>{param}</h3>
+                    </div>
                     {idG <= 4 ? <h3>{idG}</h3> : <></>}
                 </div>
                 {idG <= 4 ? (

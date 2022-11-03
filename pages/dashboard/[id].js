@@ -1,7 +1,6 @@
 import { authOptions } from "../api/auth/[...nextauth]";
 import { unstable_getServerSession } from "next-auth";
 import DashBoard from "../../components/DashBoard";
-import { useRouter } from "next/router";
 
 const dash = ({ data, param }) => {
     return (
@@ -17,8 +16,8 @@ export async function getServerSideProps(context) {
         context.res,
         authOptions
     );
-    const id = context.params.id;
     if (session) {
+        const id = context.params.id;
         const response = await fetch(
             `http://localhost:3001/school/${id}/professor`
         );

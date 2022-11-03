@@ -7,7 +7,7 @@ const Login = () => {
             <div className={logStyles.inner}>
                 <button
                     onClick={() =>
-                        signIn("google", { callbackUrl: "/dashboard/1" })
+                        signIn("google", { callbackUrl: "/dashboard" })
                     }
                     className={buttStyle.buttonIn}
                 >
